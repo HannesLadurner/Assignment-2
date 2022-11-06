@@ -1,0 +1,38 @@
+YOUR ANSWER HERE
+
+Data set 1
+Validator used: https://www.toolkitbay.com/tkb/tool/csv-validator
+Validation results: File is Valid
+Modification to create an invalid version:
+
+1.Different delimeters
+Action: Putting : instead of ; in a two rows
+Error: Record #4 has error: wrong number of fields - Record #13 has error: wrong number of fields
+
+2.Lines with diffrent numbers of elements
+Action: Adding more elements to a row #16 (20;40;50)
+Error: Record #16 has error: wrong number of fields
+
+3.Incomplete header
+Action: deleting a header element: Schwartenberg TEMP
+Error: Record #1 - #2209 has error: wrong number of fields
+
+Data set 2
+
+Validator used: https://www.w3schools.com/xml/xml_validator.asp
+Validation results: Valid XML
+Modification to create an invalid version:
+
+1.A well-formed XML document must have a corresponding end tag for all of its start tags.
+Action: Implementing a start tag without an end-tag <niederschlag>
+Error: error on line 19894 at column 18: Opening and ending tag mismatch: niederschlag line 3 and datenrecherche
+    
+2.Nesting of elements within each other in an XML document must be proper.
+Action: Swapping the order of the end-tag of <datenrecherche> and <messdaten>.
+Error: error on line 19892 at column 20: Opening and ending tag mismatch: messdaten line 17683 and datenrecherche
+    
+3.Missing quotes in attributes, ambiguous meaning of special characters
+Action: Deleting the " before the date character
+Error: error on line 7 at column 21: AttValue: " or ' expected
+    
+    Note: We tried a lot of different validators, but they always just displayed the highest error, not all 3 at once. As an expample, on data set 2, the missing quotes is the highest error, thus displayed. But all implemented errors got detected just fine on their own.
